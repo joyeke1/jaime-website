@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Game - Jaime Carbajal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ <header>
+    <div class="header-left">
+      <h1>Jaime Carbajal</h1>
+      <p>PHD Stuent | Political Scientist</p> 
+    </div>
+    <div class="header-right">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <!--  <li><a href="projects.html">Projects</a></li> -->
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="game.html">Game</a></li>
+          <!-- <li><a href="blog.html">Blog</a></li> -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- <section class="welcome-banner" id="welcome">
+    <p>Welcome to my portfolio!</p>
+  </section> -->
+
+<section class="game-layout">
+  <div class="game-title">
+    <h2>Welcome to My Game Experiment</h2>
+    <p>Create your own political figure!</p>
+  </div>
+
+  <div class="game-container">
+
+    <div id="controls">
+
+      <div class="control-group">
+        <h3>Choose Hair</h3>
+        <div class="button-column">
+          <button onclick="selectFeature('hair', 'curly')">Curly</button>
+          <button onclick="selectFeature('hair', 'straight')">Straight</button>
+          <button onclick="selectFeature('hair', 'black')">Black</button>
+          <button onclick="selectFeature('hair', 'blonde')">Blonde</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <h3>Choose Eyes</h3>
+        <div class="button-column">
+          <button onclick="selectFeature('eyes', 'blue')">Blue</button>
+          <button onclick="selectFeature('eyes', 'brown')">Brown</button>
+          <button onclick="selectFeature('eyes', 'green')">Green</button>
+          <button onclick="selectFeature('eyes', 'black')">Black</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <h3>Choose Nose</h3>
+        <div class="button-column">
+          <button onclick="selectFeature('nose', 'nose1')">Nose 1</button>
+          <button onclick="selectFeature('nose', 'nose2')">Nose 2</button>
+          <button onclick="selectFeature('nose', 'nose3')">Nose 3</button>
+          <button onclick="selectFeature('nose', 'nose4')">Nose 4</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="character-stage">
+      <img id="layer-skin" src="media/placeholder.jpeg" class="character-layer">
+      <!-- <img id="layer-skin" src="media/default.png" class="character-layer"> -->
+      <img id="layer-eyes" src="media/blue.png" class="character-layer">
+      <img id="layer-hair" src="media/curly.png" class="character-layer">
+      <img id="layer-nose" src="media/nose1.png" class="character-layer">
+
+    </div>
+
+  </div>
+</section>
+
+
+
+  <footer class="footer">
+    <div class="footer-content">
+        <!-- Left Section: Contact Information -->
+        <div class="footer-contact">
+            <p>Email: </p>
+            <p>Phone: </p>
+        </div>
+
+        <!-- Right Section: Social Media Links -->
+        <div class="footer-social">
+          <a href="exmple.com" target="_blank">LinkedIn</a>
+            <a href="example.com" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="footer-copyright">
+        <p>&copy; 2026 Jaime Carbajal. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- as the player scrolls down the image should follow them-->
+<script src="js/game.js"></script>
+</body>
+</html>

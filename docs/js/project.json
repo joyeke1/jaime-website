@@ -1,0 +1,12 @@
+{
+    "name": "nutrition-analytics-portfolio",
+    "version": "1.0.0",
+    "description": "A portfolio site for a nutrition major transitioning into data analytics.",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.18.2"
+    }
+  }
