@@ -28,58 +28,73 @@
     <p>Welcome to my portfolio!</p>
   </section> -->
 
-<section class="game-layout">
-  <div class="game-title">
-    <h2>Welcome to My Game Experiment</h2>
-    <p>Create your own political figure!</p>
-  </div>
-
-  <div class="game-container">
-
-    <div id="controls">
-
-      <div class="control-group">
-        <h3>Choose Hair</h3>
-        <div class="button-column">
-          <button onclick="selectFeature('hair', 'curly')">Curly</button>
-          <button onclick="selectFeature('hair', 'straight')">Straight</button>
-          <button onclick="selectFeature('hair', 'black')">Black</button>
-          <button onclick="selectFeature('hair', 'blonde')">Blonde</button>
-        </div>
-      </div>
-
-      <div class="control-group">
-        <h3>Choose Eyes</h3>
-        <div class="button-column">
-          <button onclick="selectFeature('eyes', 'blue')">Blue</button>
-          <button onclick="selectFeature('eyes', 'brown')">Brown</button>
-          <button onclick="selectFeature('eyes', 'green')">Green</button>
-          <button onclick="selectFeature('eyes', 'black')">Black</button>
-        </div>
-      </div>
-
-      <div class="control-group">
-        <h3>Choose Nose</h3>
-        <div class="button-column">
-          <button onclick="selectFeature('nose', 'nose1')">Nose 1</button>
-          <button onclick="selectFeature('nose', 'nose2')">Nose 2</button>
-          <button onclick="selectFeature('nose', 'nose3')">Nose 3</button>
-          <button onclick="selectFeature('nose', 'nose4')">Nose 4</button>
-        </div>
-      </div>
-
-    </div>
-
-    <div id="character-stage">
-      <img id="layer-skin" src="media/placeholder.jpeg" class="character-layer">
-      <!-- <img id="layer-skin" src="media/default.png" class="character-layer"> -->
-      <img id="layer-eyes" src="media/blue.png" class="character-layer">
-      <img id="layer-hair" src="media/curly.png" class="character-layer">
-      <img id="layer-nose" src="media/nose1.png" class="character-layer">
-
-    </div>
-
-  </div>
+<section class="game-layout"> 
+  <div class="game-title"> 
+    <h2>Welcome to My Game Experiment</h2> 
+    <p>Create your own political figure!</p> 
+  </div> 
+  <!-- ============================ 
+   SETUP SCREEN (Step 1) 
+   ============================ --> 
+   <!-- <div id="setup-screen"> 
+    <h3>Before we begin…</h3> 
+    <label>Choose skin tone:</label> 
+    <select id="skin-select"> 
+      <option value="light">Light</option> 
+      <option value="medium">Medium</option> 
+      <option value="dark">Dark</option> 
+    </select> 
+    <label>Choose gender:</label> 
+    <select id="gender-select"> 
+      <option value="male">Male</option> 
+      <option value="female">Female</option> 
+    </select>
+    <button onclick="startCustomization()">Continue</button> 
+  </div>  -->
+  <!-- ============================ 
+   GAME UI (Hidden until setup) 
+   ============================ --> 
+  <div id="game-ui"> <!--</div> style="display:none;"> -->
+    <div class="game-container"> 
+      <div id="controls"> 
+        <div class="control-group"> 
+          <h3>Choose Hair</h3> 
+          <div class="button-column"> 
+            <button id="hair-curly" onclick="selectFeature('hair', 'curly')">Curly</button> 
+            <button id="hair-straight" onclick="selectFeature('hair', 'straight')">Straight</button> 
+            <button id="hair-black" onclick="selectFeature('hair', 'black')">Black</button> 
+            <button id="hair-blonde" onclick="selectFeature('hair', 'blonde')">Blonde</button> 
+            <!-- Example gender-specific button --> 
+            <button id="hair-long" onclick="selectFeature('hair', 'long')">Long Hair</button> 
+          </div> 
+        </div> 
+        <div class="control-group"> 
+          <h3>Choose Eyes</h3> 
+          <div class="button-column"> 
+            <button id="eyes-blue" onclick="selectFeature('eyes', 'blue')">Blue</button> 
+            <button id="eyes-brown" onclick="selectFeature('eyes', 'brown')">Brown</button> 
+            <button id="eyes-green" onclick="selectFeature('eyes', 'green')">Green</button> 
+            <button id="eyes-black" onclick="selectFeature('eyes', 'black')">Black</button> 
+          </div> 
+        </div> 
+        <div class="control-group"> 
+          <h3>Choose Nose</h3> 
+          <div class="button-column"> 
+            <button id="light-nose1" onclick="selectFeature('nose', 'nose1')">Nose 1</button> 
+            <button id="light-nose2" onclick="selectFeature('nose', 'nose2')">Nose 2</button> 
+            <button id="light-nose3" onclick="selectFeature('nose', 'nose3')">Nose 3</button> 
+            <button id="light-nose4" onclick="selectFeature('nose', 'nose4')">Nose 4</button> 
+          </div> 
+        </div> 
+      </div> 
+      <div id="character-stage"> 
+        <img id="layer-skin" src="" class="character-layer"> 
+        <img id="layer-eyes" src="" class="character-layer"> 
+        <img id="layer-hair" src="" class="character-layer"> 
+        <img id="layer-nose" src="" class="character-layer"> 
+      </div> 
+    </div> 
+  </div> 
 </section>
 
 

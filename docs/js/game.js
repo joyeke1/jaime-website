@@ -12,12 +12,10 @@ const hostConfig = {
     lockedFeatures: {
         skin: false,
         hair: false,
-        eyes: true,     // Eyes locked to blue
+        eyes: false,     
         clothing: false
     },
-    presets: {
-        eyes: "blue"
-    }
+    presets: {}
 };
 
 /* =========================================
@@ -32,7 +30,8 @@ let playerData = {
         nose: "default",
         mouth: "default",
         clothing: "default",
-        accessories: "none"
+        accessories: "none",
+        gender: "default"
     },
     surveyAnswers: {}
 };
@@ -41,39 +40,36 @@ let playerData = {
    3. CHARACTER BUILDER LOGIC
    ========================================= */
 
-/**
- * Updates a specific feature of the character.
- * This version uses your flat `media/` folder.
- */
-
 function selectFeature(type, value) {
 
-    // If the host locked this feature, ignore changes
     if (hostConfig.lockedFeatures[type]) {
         console.warn(`Feature "${type}" is locked by host.`);
         return;
     }
 
-    // Update the image layer
     const layer = document.getElementById(`layer-${type}`);
     if (layer) {
-        layer.src = `media/${value}.png`;
+        const imgPath = `media/${value}.png`;
+
+        layer.onerror = () => {
+            layer.src = "";
+        };
+
+        layer.src = imgPath;
     } else {
         console.error(`Layer for type "${type}" not found.`);
     }
 
-    // Update player data
     playerData.character[type] = value;
-
     console.log(`Updated ${type} to ${value}`);
 }
+
 
 /* =========================================
    4. APPLY HOST PRESETS ON LOAD
    ========================================= */
 
 window.addEventListener("DOMContentLoaded", () => {
-    // Apply locked presets (e.g., eyes = blue)
     for (let feature in hostConfig.presets) {
         const value = hostConfig.presets[feature];
         const layer = document.getElementById(`layer-${feature}`);
@@ -84,3 +80,39 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+/* =========================================
+   5. SETUP SCREEN LOGIC
+   ========================================= */
+
+// function startCustomization() {
+//     const skin = document.getElementById("skin-select").value;
+//     const gender = document.getElementById("gender-select").value;
+
+//     playerData.character.skin = skin;
+//     playerData.character.gender = gender;
+
+//     // Hide setup screen
+//     document.getElementById("setup-screen").style.display = "none";
+
+//     // Show game UI
+//     document.getElementById("game-ui").style.display = "flex";
+
+//     // Update which buttons appear
+//     updateFeatureButtons(skin, gender);
+// }
+
+// function updateFeatureButtons(skin, gender) {
+//     // Example: hide long hair for male characters
+//     const longHairBtn = document.getElementById("hair-long");
+//     if (longHairBtn) {
+//         longHairBtn.style.display = gender === "male" ? "none" : "block";
+//     }
+
+//     // Example: hide nose4 for dark skin tone
+//     const nose4Btn = document.getElementById("nose4");
+//     if (nose4Btn) {
+//         nose4Btn.style.display = skin === "dark" ? "none" : "block";
+//     }
+// }
+
