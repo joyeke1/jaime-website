@@ -13,62 +13,70 @@ body {
 }
 
 header {
-    display: flex;
-    justify-content: space-between; /* Pushes Name left, Nav right */
-    align-items: center;            /* Centers items vertically */
-    background-color: #2a2a2a;
-    padding: 0 30px;
-    height: 80px;
-    color: white;
-    width: 100%;                    /* Ensures it spans the full page */
+  display: flex;
+  justify-content: space-between;
+  /* Pushes Name left, Nav right */
+  align-items: center;
+  /* Centers items vertically */
+  background-color: #2a2a2a;
+  padding: 0 30px;
+  height: 80px;
+  color: white;
+  width: 100%;
+  /* Ensures it spans the full page */
 }
 
 .header-left {
-    display: flex;
-    flex-direction: column;         /* Stacks Name on top of Title */
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  /* Stacks Name on top of Title */
+  justify-content: center;
 }
 
 .header-left h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    line-height: 1.2;
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.2;
 }
 
 .header-left p {
-    margin: 0;
-    font-size: 0.85rem;
-    color: #ccc;
-    font-weight: normal;
+  margin: 0;
+  font-size: 0.85rem;
+  color: #ccc;
+  font-weight: normal;
 }
 
 /* Container for the Navigation */
 .header-right {
-    display: flex;
-    align-items: center;  /* Ensures nav aligns with the logo */
+  display: flex;
+  align-items: center;
+  /* Ensures nav aligns with the logo */
 }
 
 /* The Navigation List */
 .header-right nav ul {
-    display: flex;        /* FORCE HORIZONTAL LAYOUT */
-    flex-direction: row;  /* Explicitly say "Row" */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 30px;            /* Modern way to add space between links */
+  display: flex;
+  /* FORCE HORIZONTAL LAYOUT */
+  flex-direction: row;
+  /* Explicitly say "Row" */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+  /* Modern way to add space between links */
 }
 
 /* The Links */
 .header-right nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
 }
 
 .header-right nav ul li a:hover {
-    color: #4a90e2;
+  color: #4a90e2;
 }
 
 /* Section Styles
@@ -95,13 +103,13 @@ section {
   padding: 15px;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill:hover {
   transform: translateY(-10px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .skill img {
@@ -123,7 +131,7 @@ section {
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .project-card img {
@@ -132,7 +140,8 @@ section {
   object-fit: cover;
 }
 
-.project-card h3, .project-card p {
+.project-card h3,
+.project-card p {
   padding: 0 15px;
 }
 
@@ -169,13 +178,14 @@ section {
   margin: 0 auto;
 }
 
-.contact-info, .contact-form {
+.contact-info,
+.contact-form {
   flex: 1;
   min-width: 300px;
   background-color: #fff;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .contact-methods {
@@ -204,7 +214,8 @@ section {
   font-weight: bold;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -236,92 +247,102 @@ button[type="submit"]:hover {
 
 
 /* --- The "Paper Doll" Stage --- */
-#character-stage {
-    position: relative; /* Essential: This makes it the reference point for layers */
-    width: 500px;       /* Must match your image size */
-    height: 500px;      /* Must match your image size */
+/* #character-stage {
+    position: relative; /* Essential: This makes it the reference point for layers 
+    width: 500px;       /* Must match your image size 
+    height: 500px;      /* Must match your image size 
     border: 2px solid #ccc;
-    background-color: #f9f9f9; /* Helps you see the canvas area */
+    background-color: #f9f9f9; /* Helps you see the canvas area 
     border-radius: 10px;
-}
+} */
 
 /* --- The Layers --- */
 /* This forces all character images to sit at exactly (0,0) inside the stage */
 #character-stage img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Lets clicks pass through to things behind if needed */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Lets clicks pass through to things behind if needed */
 }
 
 /* --- Controls Section --- */
 #controls {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 300px;
 }
 
 .control-group h3 {
-    margin-bottom: 5px;
-    font-size: 1.1rem;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
 }
 
 .control-group button {
-    padding: 8px 12px;
-    margin-right: 5px;
-    cursor: pointer;
+  padding: 8px 12px;
+  margin-right: 5px;
+  cursor: pointer;
 }
 
 .footer {
   background-color: #333;
   color: #fff;
   padding: 20px;
-  text-align: left; /* Align text to the left */
+  text-align: left;
+  /* Align text to the left */
   font-size: 14px;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align items to the left */
+  align-items: flex-start;
+  /* Align items to the left */
   max-width: 1000px;
   margin: 0 auto;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.footer-contact p, .footer-social a {
+.footer-contact p,
+.footer-social a {
   font-size: 16px;
   color: #fff;
   margin: 5px 0;
 }
 
-.footer-contact a, .footer-social a {
+.footer-contact a,
+.footer-social a {
   color: #ffffff;
   text-decoration: none;
 }
 
-.footer-contact a:hover, .footer-social a:hover {
+.footer-contact a:hover,
+.footer-social a:hover {
   text-decoration: underline;
 }
 
 .footer-social a {
-  display: block; /* Ensures LinkedIn and Instagram are stacked */
-  margin-bottom: 10px; /* Adds space between the links */
+  display: block;
+  /* Ensures LinkedIn and Instagram are stacked */
+  margin-bottom: 10px;
+  /* Adds space between the links */
 }
 
 /* Move social links slightly to the right */
 .footer-social {
-  margin-right: 100px; /* Adjust this value to move social links to the right */
+  margin-right: 100px;
+  /* Adjust this value to move social links to the right */
 }
 
 .footer-copyright {
   margin-top: 20px;
   font-size: 14px;
-  text-align: center; /* Align the copyright text to the left */
+  text-align: center;
+  /* Align the copyright text to the left */
 }
 
 /* Blog Welcome Section */
@@ -329,7 +350,8 @@ button[type="submit"]:hover {
   text-align: center;
   padding: 100px 20px;
   background-color: #f9f9f9;
-  min-height: 60vh; /* Makes the section take up most of the viewport height */
+  min-height: 60vh;
+  /* Makes the section take up most of the viewport height */
 }
 
 .blog-welcome h2 {
@@ -373,26 +395,33 @@ button[type="submit"]:hover {
   color: #ccc;
 }
 
-/* controls left, character right */
+/* controls left, character right
 .game-container {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 40px;
 
-  /* This pushes the whole thing to the right */ 
-  margin-left: auto; 
+  /* This pushes the whole thing to the right */
+/* margin-left: auto; 
   margin-right: 0; 
   width: fit-content;
+} */
+
+/* GAME LAYOUT */
+.game-container {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 40px;
+  padding: 20px;
+  align-items: start;
 }
 
-/* 3 groups per column, then new column to the right */
+/* CONTROLS */
 #controls {
-  display: grid;
-  grid-template-rows: repeat(3, auto);
-  grid-auto-flow: column;
-  column-gap: 40px;
-  row-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   color: white;
 }
 
@@ -401,26 +430,383 @@ button[type="submit"]:hover {
   flex-direction: column;
 }
 
-.button-column {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.control-group h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
 }
 
+.button-column {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.button-column button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.button-column button:hover {
+  background: #eaeaea;
+}
+
+button.selected {
+  background: #d0e6ff;
+  border-color: #5a9cff;
+}
+
+/* CHARACTER PREVIEW */
 #character-stage {
+  width: 450px;
+  height: 450px;
   position: relative;
-  width: 500px;
-  height: 500px;
-  border: 2px solid #ccc;
-  background-color: #f9f9f9;
-  border-radius: 10px;
+  margin-left: 280px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .character-layer {
   position: absolute;
   top: 0;
   left: 0;
+  pointer-events: none;
+}
+
+.character-layer[src=""] {
+  visibility: hidden;
+}
+
+.hair-layer {
+  width: 100%;
+  height: auto;
+  top: 0;
+}
+
+.skin-layer {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+}
+
+#character-stage.skin-light .skin-layer {
+  transform: translate(0px, 1px);
+}
+
+#character-stage.skin-light .nose-layer.nose-nose1 {
+  transform: translate(-0.9px, 119px) scale(0.12);
+}
+
+#character-stage.skin-light .nose-layer.nose-nose2 {
+  transform: translate(-0.9px, 119px) scale(0.12);
+}
+
+#character-stage.skin-light .nose-layer.nose-nose3 {
+  transform: translate(-0.5px, 122px) scale(0.10);
+}
+
+#character-stage.skin-light .nose-layer.nose-nose4 {
+  transform: translate(-5.8px, 129px) scale(0.10);
+}
+
+#character-stage.skin-light .nose-layer.nose-nose5 {
+  transform: translate(-1.5px, 120px) scale(0.12);
+}
+
+#character-stage.skin-light .eyes-layer.eyes-blue {
+  transform: translate(8px, -79px) scale(0.70);
+}
+#character-stage.skin-light .eyes-layer.eyes-brown {
+  transform: translate(7px, -82px) scale(1.15);
+}
+#character-stage.skin-light .eyes-layer.eyes-green {
+  transform: translate(1px, -90px) scale(0.40);
+}
+#character-stage.skin-light .eyes-layer.eyes-black {
+  transform: translate(1px, -90px) scale(0.40);
+}
+
+#character-stage.skin-light .hair-layer.hair1 {
+  transform: translate(-1.3px, -120px) scale(.62);
+}
+#character-stage.skin-light .hair-layer.hair2 {
+  transform: translate(-3px, -130px) scale(.512);
+}
+#character-stage.skin-light .hair-layer.hair3 {
+  transform: translate(0px, -130px) scale(1.66);
+}
+#character-stage.skin-light .hair-layer.hair4 {
+  transform: translate(-.7px, -140px) scale(1.55);
+}
+#character-stage.skin-light .hair-layer.hair5 {
+  transform: translate(-12.5px, -140px) scale(.92);
+}
+
+
+
+
+
+#character-stage.skin-medium .skin-layer {
+  transform: translate(2px, 5px);
+}
+
+#character-stage.skin-medium .nose-layer.nose-nose1,
+#character-stage.skin-medium .nose-layer.nose-nose2 {
+  transform: translate(-0.9px, 119px) scale(0.12);
+}
+
+#character-stage.skin-medium .nose-layer.nose-nose3 {
+  transform: translate(-0.5px, 122px) scale(0.10);
+}
+
+#character-stage.skin-medium .nose-layer.nose-nose4 {
+  transform: translate(-5.9px, 129px) scale(0.10);
+}
+
+#character-stage.skin-medium .nose-layer.nose-nose5 {
+  transform: translate(-1.5px, 120px) scale(0.12);
+}
+
+#character-stage.skin-medium .eyes-layer.eyes-blue {
+  transform: translate(8px, -79px) scale(0.70);
+}
+
+#character-stage.skin-medium .hair-layer.hair1 {
+  transform: translate(-1.3px, -120px) scale(.62);
+}
+#character-stage.skin-medium .hair-layer.hair2 {
+  transform: translate(-3px, -130px) scale(.512);
+}
+#character-stage.skin-medium .hair-layer.hair3 {
+  transform: translate(0px, -130px) scale(1.66);
+}
+#character-stage.skin-medium .hair-layer.hair4 {
+  transform: translate(-.7px, -140px) scale(1.55);
+}
+#character-stage.skin-medium .hair-layer.hair5 {
+  transform: translate(-12.5px, -140px) scale(.92);
+}
+
+
+
+#character-stage.skin-tan .skin-layer {
+  transform: translate(7px, 5.5px);
+}
+
+#character-stage.skin-tan .nose-layer.nose-nose1,
+#character-stage.skin-tan .nose-layer.nose-nose2 {
+  transform: translate(-0.9px, 119px) scale(0.12);
+}
+
+#character-stage.skin-tan .nose-layer.nose-nose3 {
+  transform: translate(-0.5px, 122px) scale(0.10);
+}
+
+#character-stage.skin-tan .nose-layer.nose-nose4 {
+  transform: translate(-5.4px, 129px) scale(0.10);
+}
+
+#character-stage.skin-tan .nose-layer.nose-nose5 {
+  transform: translate(-1px, 120px) scale(0.12);
+}
+
+#character-stage.skin-tan .eyes-layer.eyes-blue {
+  transform: translate(7.7px, -79px) scale(0.70);
+}
+
+#character-stage.skin-tan .hair-layer.hair1 {
+  transform: translate(-1.3px, -120px) scale(.62);
+}
+#character-stage.skin-tan .hair-layer.hair2 {
+  transform: translate(-3px, -130px) scale(.512);
+}
+#character-stage.skin-tan .hair-layer.hair3 {
+  transform: translate(0px, -130px) scale(1.66);
+}
+#character-stage.skin-tan .hair-layer.hair4 {
+  transform: translate(-.7px, -140px) scale(1.55);
+}
+#character-stage.skin-tan .hair-layer.hair5 {
+  transform: translate(-12.5px, -140px) scale(.92);
+}
+
+
+
+
+#character-stage.skin-brown .skin-layer {
+  transform: translate(10.5px, 7px);
+}
+
+#character-stage.skin-brown .nose-layer.nose-nose1,
+#character-stage.skin-brown .nose-layer.nose-nose2 {
+  transform: translate(-0.9px, 119px) scale(0.12);
+}
+
+#character-stage.skin-brown .nose-layer.nose-nose3 {
+  transform: translate(-0.5px, 122px) scale(0.10);
+}
+
+#character-stage.skin-brown .nose-layer.nose-nose4 {
+  transform: translate(-5.4px, 129px) scale(0.10);
+}
+
+#character-stage.skin-brown .nose-layer.nose-nose5 {
+  transform: translate(-1.5px, 120px) scale(0.12);
+}
+
+#character-stage.skin-brown .eyes-layer.eyes-blue {
+  transform: translate(7.7px, -79px) scale(0.70);
+}
+#character-stage.skin-brown .hair-layer.hair1 {
+  transform: translate(-1.3px, -120px) scale(.62);
+}
+#character-stage.skin-brown .hair-layer.hair2 {
+  transform: translate(-3px, -130px) scale(.512);
+}
+#character-stage.skin-brown .hair-layer.hair3 {
+  transform: translate(0px, -130px) scale(1.66);
+}
+#character-stage.skin-brown .hair-layer.hair4 {
+  transform: translate(-.7px, -140px) scale(1.55);
+}
+#character-stage.skin-brown .hair-layer.hair5 {
+  transform: translate(-12.5px, -140px) scale(.92);
+}
+
+
+
+#character-stage.skin-dark .skin-layer {
+  transform: translate(7.5px, 9px);
+}
+
+#character-stage.skin-dark .nose-layer.nose-nose1,
+#character-stage.skin-dark .nose-layer.nose-nose2 {
+  transform: translate(-0.9px, 119px) scale(0.12);
+}
+
+#character-stage.skin-dark .nose-layer.nose-nose3 {
+  transform: translate(0px, 122px) scale(0.10);
+}
+
+#character-stage.skin-dark .nose-layer.nose-nose4 {
+  transform: translate(-5.4px, 129px) scale(0.10);
+}
+
+#character-stage.skin-dark .nose-layer.nose-nose5 {
+  transform: translate(-0.7px, 121px) scale(0.12);
+}
+
+#character-stage.skin-dark .eyes-layer.eyes-blue {
+  transform: translate(7.7px, -79px) scale(0.70);
+}
+
+#character-stage.skin-dark .hair-layer.hair1 {
+  transform: translate(-1.3px, -120px) scale(.62);
+}
+#character-stage.skin-dark .hair-layer.hair2 {
+  transform: translate(-3px, -130px) scale(.512);
+}
+#character-stage.skin-dark .hair-layer.hair3 {
+  transform: translate(0px, -130px) scale(1.66);
+}
+#character-stage.skin-dark .hair-layer.hair4 {
+  transform: translate(-.7px, -140px) scale(1.55);
+}
+#character-stage.skin-dark .hair-layer.hair5 {
+  transform: translate(-12.5px, -140px) scale(.92);
+}
+
+
+
+
+.nose-layer {
+  width: 100%;
+  height: auto;
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+
+  transform-origin: top center;
+  transform: translate(-1px, 115px) scale(0.14);
+}
+
+
+
+.eyes-layer {
+  width: 18%;
+  top: 32%;
+  left: 36%;
+}
+
+
+.button-column button {
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.button-column button img {
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  object-fit: contain;
+}
+
+.button-column button:hover {
+  border-color: #5a9cff;
+}
+
+button.selected {
+  border-color: #5a9cff;
+  background: #d0e6ff;
+}
+
+.skin-swatch-row {
+  display: flex;
+  gap: 12px;
+}
+
+.skin-swatch-row button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.skin-swatch-row button:hover {
+  border-color: #5a9cff;
+}
+
+.skin-swatch-row button.selected {
+  border-color: #5a9cff;
+  background: #d0e6ff;
+}
+
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: block;
 }

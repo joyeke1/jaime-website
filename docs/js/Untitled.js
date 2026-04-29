@@ -100,28 +100,14 @@ function selectFeature(type, value) {
            SKIN CLASS HANDLING
         ------------------------------ */
         if (type === 'skin') {
-            const stage = document.getElementById('character-stage');
+            const skinLayer = document.getElementById('layer-skin');
 
-            stage.classList.remove(
+            skinLayer.classList.remove(
                 'skin-light', 'skin-medium', 'skin-tan', 'skin-brown', 'skin-dark'
             );
 
-            stage.classList.add(`skin-${value}`);
+            skinLayer.classList.add(`skin-${value}`);
         }
-
-        /* ------------------------------
-           HAIR CLASS HANDLING
-        ------------------------------ */
-        if (type === 'hair') {
-            const hairLayer = document.getElementById('layer-hair');
-
-            hairLayer.classList.remove(
-                'hair1', 'hair2', 'hair3', 'hair4', 'hair5'
-            );
-
-            hairLayer.classList.add(value);
-        }
-
 
         /* ------------------------------
            NOSE CLASS HANDLING
