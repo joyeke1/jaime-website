@@ -8,7 +8,7 @@
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: #ffffff;
   background-color: #4d4d4d;
 }
 
@@ -260,10 +260,11 @@ button[type="submit"]:hover {
 /* This forces all character images to sit at exactly (0,0) inside the stage */
 #character-stage img {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 140%;
+  height: auto;
+  transform: translateY(-50%);
   pointer-events: none;
   /* Lets clicks pass through to things behind if needed */
 }
@@ -396,22 +397,10 @@ button[type="submit"]:hover {
 }
 
 /* controls left, character right
-.game-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 40px;
-
-  /* This pushes the whole thing to the right */
-/* margin-left: auto; 
-  margin-right: 0; 
-  width: fit-content;
-} */
-
 /* GAME LAYOUT */
 .game-container {
   display: grid;
-  grid-template-columns: 350px 1fr;
+  grid-template-columns: 1fr 450px;
   gap: 40px;
   padding: 20px;
   align-items: start;
@@ -420,9 +409,17 @@ button[type="submit"]:hover {
 /* CONTROLS */
 #controls {
   display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: flex-start;
+  color: white;
+}
+
+.controls-column {
+  display: flex;
   flex-direction: column;
   gap: 30px;
-  color: white;
+  flex: 1;
 }
 
 .control-group {
@@ -464,7 +461,7 @@ button.selected {
   width: 450px;
   height: 450px;
   position: relative;
-  margin-left: 280px;
+  margin-top: 180px;
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -486,7 +483,10 @@ button.selected {
   width: 100%;
   height: auto;
   top: 0;
+  left: 0;
+  transform-origin: top left;
 }
+
 
 .skin-layer {
   width: 100%;
@@ -497,247 +497,890 @@ button.selected {
   transform-origin: top left;
 }
 
-#character-stage.skin-light .skin-layer {
-  transform: translate(0px, 1px);
-}
-
-#character-stage.skin-light .nose-layer.nose-nose1 {
-  transform: translate(-0.9px, 119px) scale(0.12);
-}
-
-#character-stage.skin-light .nose-layer.nose-nose2 {
-  transform: translate(-0.9px, 119px) scale(0.12);
-}
-
-#character-stage.skin-light .nose-layer.nose-nose3 {
-  transform: translate(-0.5px, 122px) scale(0.10);
-}
-
-#character-stage.skin-light .nose-layer.nose-nose4 {
-  transform: translate(-5.8px, 129px) scale(0.10);
-}
-
-#character-stage.skin-light .nose-layer.nose-nose5 {
-  transform: translate(-1.5px, 120px) scale(0.12);
-}
-
-#character-stage.skin-light .eyes-layer.eyes-blue {
-  transform: translate(8px, -79px) scale(0.70);
-}
-#character-stage.skin-light .eyes-layer.eyes-brown {
-  transform: translate(7px, -82px) scale(1.15);
-}
-#character-stage.skin-light .eyes-layer.eyes-green {
-  transform: translate(1px, -90px) scale(0.40);
-}
-#character-stage.skin-light .eyes-layer.eyes-black {
-  transform: translate(1px, -90px) scale(0.40);
-}
-
-#character-stage.skin-light .hair-layer.hair1 {
-  transform: translate(-1.3px, -120px) scale(.62);
-}
-#character-stage.skin-light .hair-layer.hair2 {
-  transform: translate(-3px, -130px) scale(.512);
-}
-#character-stage.skin-light .hair-layer.hair3 {
-  transform: translate(0px, -130px) scale(1.66);
-}
-#character-stage.skin-light .hair-layer.hair4 {
-  transform: translate(-.7px, -140px) scale(1.55);
-}
-#character-stage.skin-light .hair-layer.hair5 {
-  transform: translate(-12.5px, -140px) scale(.92);
-}
-
-
-
-
-
-#character-stage.skin-medium .skin-layer {
-  transform: translate(2px, 5px);
-}
-
-#character-stage.skin-medium .nose-layer.nose-nose1,
-#character-stage.skin-medium .nose-layer.nose-nose2 {
-  transform: translate(-0.9px, 119px) scale(0.12);
-}
-
-#character-stage.skin-medium .nose-layer.nose-nose3 {
-  transform: translate(-0.5px, 122px) scale(0.10);
-}
-
-#character-stage.skin-medium .nose-layer.nose-nose4 {
-  transform: translate(-5.9px, 129px) scale(0.10);
-}
-
-#character-stage.skin-medium .nose-layer.nose-nose5 {
-  transform: translate(-1.5px, 120px) scale(0.12);
-}
-
-#character-stage.skin-medium .eyes-layer.eyes-blue {
-  transform: translate(8px, -79px) scale(0.70);
-}
-
-#character-stage.skin-medium .hair-layer.hair1 {
-  transform: translate(-1.3px, -120px) scale(.62);
-}
-#character-stage.skin-medium .hair-layer.hair2 {
-  transform: translate(-3px, -130px) scale(.512);
-}
-#character-stage.skin-medium .hair-layer.hair3 {
-  transform: translate(0px, -130px) scale(1.66);
-}
-#character-stage.skin-medium .hair-layer.hair4 {
-  transform: translate(-.7px, -140px) scale(1.55);
-}
-#character-stage.skin-medium .hair-layer.hair5 {
-  transform: translate(-12.5px, -140px) scale(.92);
-}
-
-
-
-#character-stage.skin-tan .skin-layer {
-  transform: translate(7px, 5.5px);
-}
-
-#character-stage.skin-tan .nose-layer.nose-nose1,
-#character-stage.skin-tan .nose-layer.nose-nose2 {
-  transform: translate(-0.9px, 119px) scale(0.12);
-}
-
-#character-stage.skin-tan .nose-layer.nose-nose3 {
-  transform: translate(-0.5px, 122px) scale(0.10);
-}
-
-#character-stage.skin-tan .nose-layer.nose-nose4 {
-  transform: translate(-5.4px, 129px) scale(0.10);
-}
-
-#character-stage.skin-tan .nose-layer.nose-nose5 {
-  transform: translate(-1px, 120px) scale(0.12);
-}
-
-#character-stage.skin-tan .eyes-layer.eyes-blue {
-  transform: translate(7.7px, -79px) scale(0.70);
-}
-
-#character-stage.skin-tan .hair-layer.hair1 {
-  transform: translate(-1.3px, -120px) scale(.62);
-}
-#character-stage.skin-tan .hair-layer.hair2 {
-  transform: translate(-3px, -130px) scale(.512);
-}
-#character-stage.skin-tan .hair-layer.hair3 {
-  transform: translate(0px, -130px) scale(1.66);
-}
-#character-stage.skin-tan .hair-layer.hair4 {
-  transform: translate(-.7px, -140px) scale(1.55);
-}
-#character-stage.skin-tan .hair-layer.hair5 {
-  transform: translate(-12.5px, -140px) scale(.92);
-}
-
-
-
-
-#character-stage.skin-brown .skin-layer {
-  transform: translate(10.5px, 7px);
-}
-
-#character-stage.skin-brown .nose-layer.nose-nose1,
-#character-stage.skin-brown .nose-layer.nose-nose2 {
-  transform: translate(-0.9px, 119px) scale(0.12);
-}
-
-#character-stage.skin-brown .nose-layer.nose-nose3 {
-  transform: translate(-0.5px, 122px) scale(0.10);
-}
-
-#character-stage.skin-brown .nose-layer.nose-nose4 {
-  transform: translate(-5.4px, 129px) scale(0.10);
-}
-
-#character-stage.skin-brown .nose-layer.nose-nose5 {
-  transform: translate(-1.5px, 120px) scale(0.12);
-}
-
-#character-stage.skin-brown .eyes-layer.eyes-blue {
-  transform: translate(7.7px, -79px) scale(0.70);
-}
-#character-stage.skin-brown .hair-layer.hair1 {
-  transform: translate(-1.3px, -120px) scale(.62);
-}
-#character-stage.skin-brown .hair-layer.hair2 {
-  transform: translate(-3px, -130px) scale(.512);
-}
-#character-stage.skin-brown .hair-layer.hair3 {
-  transform: translate(0px, -130px) scale(1.66);
-}
-#character-stage.skin-brown .hair-layer.hair4 {
-  transform: translate(-.7px, -140px) scale(1.55);
-}
-#character-stage.skin-brown .hair-layer.hair5 {
-  transform: translate(-12.5px, -140px) scale(.92);
-}
-
-
-
-#character-stage.skin-dark .skin-layer {
-  transform: translate(7.5px, 9px);
-}
-
-#character-stage.skin-dark .nose-layer.nose-nose1,
-#character-stage.skin-dark .nose-layer.nose-nose2 {
-  transform: translate(-0.9px, 119px) scale(0.12);
-}
-
-#character-stage.skin-dark .nose-layer.nose-nose3 {
-  transform: translate(0px, 122px) scale(0.10);
-}
-
-#character-stage.skin-dark .nose-layer.nose-nose4 {
-  transform: translate(-5.4px, 129px) scale(0.10);
-}
-
-#character-stage.skin-dark .nose-layer.nose-nose5 {
-  transform: translate(-0.7px, 121px) scale(0.12);
-}
-
-#character-stage.skin-dark .eyes-layer.eyes-blue {
-  transform: translate(7.7px, -79px) scale(0.70);
-}
-
-#character-stage.skin-dark .hair-layer.hair1 {
-  transform: translate(-1.3px, -120px) scale(.62);
-}
-#character-stage.skin-dark .hair-layer.hair2 {
-  transform: translate(-3px, -130px) scale(.512);
-}
-#character-stage.skin-dark .hair-layer.hair3 {
-  transform: translate(0px, -130px) scale(1.66);
-}
-#character-stage.skin-dark .hair-layer.hair4 {
-  transform: translate(-.7px, -140px) scale(1.55);
-}
-#character-stage.skin-dark .hair-layer.hair5 {
-  transform: translate(-12.5px, -140px) scale(.92);
-}
-
-
-
-
 .nose-layer {
+  position: absolute;
+  width: 120px;
+  height: auto;
+  transform-origin: top left ;
+}
+
+.tie-layer {
   width: 100%;
   height: auto;
   position: absolute;
-
-  top: 0px;
-  left: 0px;
-
-  transform-origin: top center;
-  transform: translate(-1px, 115px) scale(0.14);
+  top: 0;
+  left: 0;
+  transform-origin: top left;
 }
+
+
+
+/* LIGHT SKIN */
+#character-stage.skin-1 {
+  --skin-offset-x: -380px;
+  --skin-offset-y: -318px;
+  --hair-offset-x: 200px;
+  --hair-offset-y: 100px;
+  --nose-offset-x: 0px;
+  --nose-offset-y: 0px;
+  --eyes-offset-x: 0px;
+  --eyes-offset-y: 3px;
+}
+
+#character-stage.skin-1 .skin-layer {
+  transform: translate(var(--skin-offset-x), var(--skin-offset-y)) scale(1.93);
+}
+
+/* tie color */
+#character-stage.skin-1 .tie-layer.tie-blue,
+#character-stage.skin-1 .tie-layer.tie-red{
+  transform: translate(-393px, -117px) scale(2.8);
+}
+#character-stage.skin-1 .tie-layer.tie-grey{
+  transform: translate(-595px, -230px) scale(3.7);
+}
+
+
+
+#character-stage.skin-1 .nose-layer.nose-nose1 {
+  transform: translate(calc(577px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(233px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-1 .nose-layer.nose-nose2 {
+  transform: translate(calc(577px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(233px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-1 .nose-layer.nose-nose3 {
+  transform: translate(calc(584px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(234px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+#character-stage.skin-1 .nose-layer.nose-nose4 {
+  transform: translate(calc(584px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(234px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+
+/* eyes */
+#character-stage.skin-1 .eyes-layer.eyes-blue {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(73px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.5);
+}
+#character-stage.skin-1 .eyes-layer.eyes-brown {
+  transform: translate(calc(291px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(70px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-1 .eyes-layer.eyes-green {
+  transform: translate(calc(297px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(81.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-1 .eyes-layer.eyes-black {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(73px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.81);
+}
+
+/* hair */
+#character-stage.skin-1 .hair-layer.hair1 {
+  transform: translate(calc(255px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(21px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.47);
+}
+#character-stage.skin-1 .hair-layer.hair2 {
+  transform: translate(calc(275px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(32px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.40);
+}
+#character-stage.skin-1 .hair-layer.hair3 {
+  transform: translate(calc(1px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-120px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.29);
+}
+#character-stage.skin-1 .hair-layer.hair4 {
+  transform: translate(calc(125.7px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-20px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.88);
+}
+#character-stage.skin-1 .hair-layer.hair5 {
+  transform: translate(calc(14.5px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-112px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.24);
+}
+#character-stage.skin-1 .hair-layer.hair6 {
+  transform: translate(calc(178px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-30px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.68);
+}
+
+/* mouth */
+#character-stage.skin-1 .mouth-layer.mouth-smile {
+  transform: translate(calc(290px + var(--skin-offset-x)), calc(271px + var(--skin-offset-y))) scale(.12);
+}
+#character-stage.skin-1 .mouth-layer.mouth-frown {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+#character-stage.skin-1 .mouth-layer.mouth-teeth {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+
+/* PEACH SKIN */
+#character-stage.skin-2 {
+  --skin-offset-x: -308px;
+  --skin-offset-y: -277.5px;
+  --hair-offset-x: 128px;
+  --hair-offset-y: 60px;
+  --eyes-offset-x: -72px;
+  --eyes-offset-y: -40px;
+  --nose-offset-x: -10.5px;
+  --nose-offset-y: -8px;
+}
+
+#character-stage.skin-2 .skin-layer {
+  transform: translate(var(--skin-offset-x), var(--skin-offset-y)) scale(1.7);
+}
+
+/* tie color */
+#character-stage.skin-2 .tie-layer.tie-blue,
+#character-stage.skin-2 .tie-layer.tie-red {
+  transform: translate(-393px, -117px) scale(2.8);
+}
+#character-stage.skin-2 .tie-layer.tie-grey {
+  transform: translate(-595px, -230px) scale(3.7);
+}
+
+/* nose */
+#character-stage.skin-2 .nose-layer.nose-nose1 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-2 .nose-layer.nose-nose2 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-2 .nose-layer.nose-nose3 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+#character-stage.skin-2 .nose-layer.nose-nose4 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+
+/* eyes */
+#character-stage.skin-2 .eyes-layer.eyes-blue {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(77px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.5);
+}
+#character-stage.skin-2 .eyes-layer.eyes-brown {
+  transform: translate(calc(291px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(74px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-2 .eyes-layer.eyes-green {
+  transform: translate(calc(297px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(85.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-2 .eyes-layer.eyes-black {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(77px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.81);
+}
+
+/* hair */
+#character-stage.skin-2 .hair-layer.hair1 {
+  transform: translate(calc(255px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(21px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.47);
+}
+#character-stage.skin-2 .hair-layer.hair2 {
+  transform: translate(calc(275px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(32px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.40);
+}
+#character-stage.skin-2 .hair-layer.hair3 {
+  transform: translate(calc(1px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-120px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.29);
+}
+#character-stage.skin-2 .hair-layer.hair4 {
+  transform: translate(calc(125.7px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-20px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.88);
+}
+#character-stage.skin-2 .hair-layer.hair5 {
+  transform: translate(calc(14.5px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-112px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.24);
+}
+#character-stage.skin-2 .hair-layer.hair6 {
+  transform: translate(calc(178px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-30px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.68);
+}
+/* mouth */
+#character-stage.skin-2 .mouth-layer.mouth-smile {
+  transform: translate(calc(219px + var(--skin-offset-x)), calc(230px + var(--skin-offset-y))) scale(.12);
+}
+#character-stage.skin-2 .mouth-layer.mouth-frown {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+#character-stage.skin-2 .mouth-layer.mouth-teeth {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+
+
+
+
+/* MEDIUM SKIN */
+#character-stage.skin-3 {
+  --skin-offset-x: -308px;
+  --skin-offset-y: -277.5px;
+  --hair-offset-x: 128px;
+  --hair-offset-y: 60px;
+  --eyes-offset-x: -72px;
+  --eyes-offset-y: -39px;
+  --nose-offset-x: -10px;
+  --nose-offset-y: -7px;
+}
+
+#character-stage.skin-3 .skin-layer {
+  transform: translate(var(--skin-offset-x), var(--skin-offset-y)) scale(1.7);
+}
+
+/* tie color */
+#character-stage.skin-3 .tie-layer.tie-blue,
+#character-stage.skin-3 .tie-layer.tie-red {
+  transform: translate(-393px, -117px) scale(2.8);
+}
+#character-stage.skin-3 .tie-layer.tie-grey {
+  transform: translate(-595px, -230px) scale(3.7);
+}
+
+/* nose */
+#character-stage.skin-3 .nose-layer.nose-nose1 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-3 .nose-layer.nose-nose2 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-3 .nose-layer.nose-nose3 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+#character-stage.skin-3 .nose-layer.nose-nose4 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+
+/* eyes */
+#character-stage.skin-3 .eyes-layer.eyes-blue {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.5);
+}
+#character-stage.skin-3 .eyes-layer.eyes-brown {
+  transform: translate(calc(291px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(72px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-3 .eyes-layer.eyes-green {
+  transform: translate(calc(297px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(83.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-3 .eyes-layer.eyes-black {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.81);
+}
+
+/* hair */
+#character-stage.skin-3 .hair-layer.hair1 {
+  transform: translate(calc(255px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(21px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.47);
+}
+#character-stage.skin-3 .hair-layer.hair2 {
+  transform: translate(calc(275px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(32px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.40);
+}
+#character-stage.skin-3 .hair-layer.hair3 {
+  transform: translate(calc(1px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-120px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.29);
+}
+#character-stage.skin-3 .hair-layer.hair4 {
+  transform: translate(calc(125.7px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-20px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.88);
+}
+#character-stage.skin-3 .hair-layer.hair5 {
+  transform: translate(calc(14.5px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-112px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.24);
+}
+#character-stage.skin-3 .hair-layer.hair6 {
+  transform: translate(calc(178px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-30px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.68);
+}
+/* mouth */
+#character-stage.skin-3 .mouth-layer.mouth-smile {
+  transform: translate(calc(219px + var(--skin-offset-x)), calc(232px + var(--skin-offset-y))) scale(.12);
+}
+#character-stage.skin-3 .mouth-layer.mouth-frown {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+#character-stage.skin-3 .mouth-layer.mouth-teeth {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+
+
+/* TAN SKIN */
+#character-stage.skin-4 {
+  --skin-offset-x: -294px;
+  --skin-offset-y: -267px;
+  --hair-offset-x: 0px;
+  --hair-offset-y: 0px;
+  --eyes-offset-x: -87px;
+  --eyes-offset-y: -50px;
+  --nose-offset-x: -26px;
+  --nose-offset-y: -17px;
+}
+
+#character-stage.skin-4 .skin-layer {
+  transform: translate(var(--skin-offset-x), var(--skin-offset-y)) scale(1.65);
+}
+
+/* tie color */
+#character-stage.skin-4 .tie-layer.tie-blue,
+#character-stage.skin-4 .tie-layer.tie-red {
+  transform: translate(-393px, -117px) scale(2.8);
+}
+#character-stage.skin-4 .tie-layer.tie-grey {
+  transform: translate(-595px, -230px) scale(3.7);
+}
+
+/* nose */
+#character-stage.skin-4 .nose-layer.nose-nose1 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-4 .nose-layer.nose-nose2 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-4 .nose-layer.nose-nose3 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+#character-stage.skin-4 .nose-layer.nose-nose4 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+
+
+/* eyes */
+#character-stage.skin-4 .eyes-layer.eyes-blue {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.5);
+}
+#character-stage.skin-4 .eyes-layer.eyes-brown {
+  transform: translate(calc(291px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(72px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-4 .eyes-layer.eyes-green {
+  transform: translate(calc(297px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(83.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-4 .eyes-layer.eyes-black {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.81);
+}
+
+/* hair */
+#character-stage.skin-4 .hair-layer.hair1 {
+  transform: translate(calc(367.7px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(73px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.47);
+}
+
+#character-stage.skin-4 .hair-layer.hair2 {
+  transform: translate(calc(388.6px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(79px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.4);
+}
+
+#character-stage.skin-4 .hair-layer.hair3 {
+  transform: translate(calc(126px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-63px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.25);
+}
+#character-stage.skin-4 .hair-layer.hair4 {
+  transform: translate(calc(248px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(35px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.85);
+}
+#character-stage.skin-4 .hair-layer.hair5 {
+  transform: translate(calc(127px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-65px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.24);
+}
+#character-stage.skin-4 .hair-layer.hair6 {
+  transform: translate(calc(291.5px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(15px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.678);
+}
+
+/* mouth */
+#character-stage.skin-4 .mouth-layer.mouth-smile {
+  transform: translate(calc(204px + var(--skin-offset-x)), calc(223px + var(--skin-offset-y))) scale(.12);
+}
+#character-stage.skin-4 .mouth-layer.mouth-frown {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+#character-stage.skin-4 .mouth-layer.mouth-teeth {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+
+
+
+
+/* BROWN SKIN */
+#character-stage.skin-5 {
+  --skin-offset-x: -275px;
+  --skin-offset-y: -250px;
+  --hair-offset-x: 0px;
+  --hair-offset-y: 0px;
+  --eyes-offset-x: -106px;
+  --eyes-offset-y: -64px;
+  --nose-offset-x: -44.5px;
+  --nose-offset-y: -33px;
+}
+
+#character-stage.skin-5 .skin-layer {
+  transform: translate(var(--skin-offset-x), var(--skin-offset-y)) scale(1.59);
+}
+
+/* tie color */
+#character-stage.skin-5 .tie-layer.tie-blue,
+#character-stage.skin-5 .tie-layer.tie-red {
+  transform: translate(-393px, -117px) scale(2.8);
+}
+#character-stage.skin-5 .tie-layer.tie-grey {
+  transform: translate(-595px, -230px) scale(3.7);
+}
+
+/* nose */
+#character-stage.skin-5 .nose-layer.nose-nose1 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-5 .nose-layer.nose-nose2 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-5 .nose-layer.nose-nose3 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+#character-stage.skin-5 .nose-layer.nose-nose4 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+
+
+/* eyes */
+#character-stage.skin-5 .eyes-layer.eyes-blue {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.5);
+}
+#character-stage.skin-5 .eyes-layer.eyes-brown {
+  transform: translate(calc(291px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(72px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-5 .eyes-layer.eyes-green {
+  transform: translate(calc(297px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(83.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-5 .eyes-layer.eyes-black {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.81);
+}
+
+/* hair */
+#character-stage.skin-5 .hair-layer.hair1 {
+  transform: translate(calc(350px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(60px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.468);
+}
+#character-stage.skin-5 .hair-layer.hair2 {
+  transform: translate(calc(369px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(65px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.4);
+}
+#character-stage.skin-5 .hair-layer.hair3 {
+  transform: translate(calc(101px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-85px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.27);
+}
+#character-stage.skin-5 .hair-layer.hair4 {
+  transform: translate(calc(229px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(20px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.85);
+}
+#character-stage.skin-5 .hair-layer.hair5 {
+  transform: translate(calc(106px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-85px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.247);
+}
+#character-stage.skin-5 .hair-layer.hair6 {
+  transform: translate(calc(272px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(0px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.68);
+}
+
+/* mouth */
+#character-stage.skin-5 .mouth-layer.mouth-smile {
+  transform: translate(calc(185px + var(--skin-offset-x)), calc(208px + var(--skin-offset-y))) scale(.12);
+}
+#character-stage.skin-5 .mouth-layer.mouth-frown {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+#character-stage.skin-5 .mouth-layer.mouth-teeth {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+
+
+
+
+/* RICH DARK BROWN SKIN (6th skin tone) */
+#character-stage.skin-6 {
+  --skin-offset-x: -308px;
+  --skin-offset-y: -277.5px;
+  --hair-offset-x: 0px;
+  --hair-offset-y: 0px;
+  --eyes-offset-x: -72.5px;
+  --eyes-offset-y: -39px;
+  --nose-offset-x: -10.5px;
+  --nose-offset-y: -7px;
+}
+
+#character-stage.skin-6 .skin-layer {
+  transform: translate(var(--skin-offset-x), var(--skin-offset-y)) scale(1.7);
+}
+
+/* tie color */
+#character-stage.skin-6 .tie-layer.tie-blue,
+#character-stage.skin-6 .tie-layer.tie-red {
+  transform: translate(-393px, -117px) scale(2.8);
+}
+#character-stage.skin-6 .tie-layer.tie-grey {
+  transform: translate(-595px, -230px) scale(3.7);
+}
+
+/* nose */
+#character-stage.skin-6 .nose-layer.nose-nose1 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-6 .nose-layer.nose-nose2 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-6 .nose-layer.nose-nose3 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+#character-stage.skin-6 .nose-layer.nose-nose4 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+
+
+/* eyes */
+#character-stage.skin-6 .eyes-layer.eyes-blue {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.5);
+}
+#character-stage.skin-6 .eyes-layer.eyes-brown {
+  transform: translate(calc(291px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(72px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-6 .eyes-layer.eyes-green {
+  transform: translate(calc(297px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(83.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-6 .eyes-layer.eyes-black {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.81);
+}
+
+/* hair */
+#character-stage.skin-6 .hair-layer.hair1 {
+  transform: translate(calc(383px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(84px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.47);
+}
+#character-stage.skin-6 .hair-layer.hair2 {
+  transform: translate(calc(403px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(95px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.4);
+}
+#character-stage.skin-6 .hair-layer.hair3 {
+  transform: translate(calc(126px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-68px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.3);
+}
+#character-stage.skin-6 .hair-layer.hair4 {
+  transform: translate(calc(260px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(45px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.86);
+}
+#character-stage.skin-6 .hair-layer.hair5 {
+  transform: translate(calc(140px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-58px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.247);
+}
+#character-stage.skin-6 .hair-layer.hair6 {
+  transform: translate(calc(300.5px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(23px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.695);
+}
+
+/* mouth */
+#character-stage.skin-6 .mouth-layer.mouth-smile {
+  transform: translate(calc(218.4px + var(--skin-offset-x)), calc(232px + var(--skin-offset-y))) scale(.12);
+}
+#character-stage.skin-6 .mouth-layer.mouth-frown {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+#character-stage.skin-6 .mouth-layer.mouth-teeth {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+
+
+
+/*DARK SKIN*/
+#character-stage.skin-7 {
+  --skin-offset-x: -292px;
+  --skin-offset-y: -265px;
+  --hair-offset-x: 0px;
+  --hair-offset-y: -5px;
+   --eyes-offset-x: -88px;
+  --eyes-offset-y: -50px;
+  --nose-offset-x: -26px;
+  --nose-offset-y: -18px;
+}
+
+#character-stage.skin-7 .skin-layer {
+  transform: translate(var(--skin-offset-x), var(--skin-offset-y)) scale(1.65);
+}
+
+/* tie color */
+#character-stage.skin-7 .tie-layer.tie-blue,
+#character-stage.skin-7 .tie-layer.tie-red {
+  transform: translate(-393px, -117px) scale(2.8);
+}
+#character-stage.skin-7 .tie-layer.tie-grey {
+  transform: translate(-595px, -230px) scale(3.7);
+}
+
+/* nose */
+#character-stage.skin-7 .nose-layer.nose-nose1 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-7 .nose-layer.nose-nose2 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-7 .nose-layer.nose-nose3 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+#character-stage.skin-7 .nose-layer.nose-nose4 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+
+
+/* eyes */
+#character-stage.skin-7 .eyes-layer.eyes-blue {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.5);
+}
+#character-stage.skin-7 .eyes-layer.eyes-brown {
+  transform: translate(calc(291px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(72px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-7 .eyes-layer.eyes-green {
+  transform: translate(calc(297px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(83.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-7 .eyes-layer.eyes-black {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.81);
+}
+
+/* hair */
+#character-stage.skin-7 .hair-layer.hair1 {
+  transform: translate(calc(369px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(75px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.465);
+}
+#character-stage.skin-7 .hair-layer.hair2 {
+  transform: translate(calc(389px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(89px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.395);
+}
+#character-stage.skin-7 .hair-layer.hair3 {
+  transform: translate(calc(110px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-74px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.3);
+}
+#character-stage.skin-7 .hair-layer.hair4 {
+  transform: translate(calc(244px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(34px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.86);
+}
+#character-stage.skin-7 .hair-layer.hair5 {
+  transform: translate(calc(123px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-67px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.25);
+}
+#character-stage.skin-7 .hair-layer.hair6 {
+  transform: translate(calc(284.8px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(10px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.695);
+}
+
+/* mouth */
+#character-stage.skin-7 .mouth-layer.mouth-smile {
+  transform: translate(calc(203px + var(--skin-offset-x)), calc(222px + var(--skin-offset-y))) scale(.12);
+}
+#character-stage.skin-7 .mouth-layer.mouth-frown {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+#character-stage.skin-7 .mouth-layer.mouth-teeth {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+
+
+
+#character-stage.skin-8 {
+  --skin-offset-x: -380px;
+  --skin-offset-y: -318px;
+  --hair-offset-x: 0px;
+  --hair-offset-y: 0px;
+  --eyes-offset-x: 0px;
+  --eyes-offset-y: 0px;
+  --nose-offset-x: 61.5px;
+  --nose-offset-y: 34px;
+}
+
+#character-stage.skin-8 .skin-layer {
+  transform: translate(var(--skin-offset-x), var(--skin-offset-y)) scale(1.93);
+}
+
+/* tie color */
+#character-stage.skin-8 .tie-layer.tie-blue,
+#character-stage.skin-8 .tie-layer.tie-red {
+  transform: translate(-393px, -117px) scale(2.8);
+}
+#character-stage.skin-8 .tie-layer.tie-grey {
+  transform: translate(-595px, -230px) scale(3.7);
+}
+
+/* nose */
+#character-stage.skin-8 .nose-layer.nose-nose1 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-8 .nose-layer.nose-nose2 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-8 .nose-layer.nose-nose3 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+#character-stage.skin-8 .nose-layer.nose-nose4 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+
+
+/* eyes */
+#character-stage.skin-8 .eyes-layer.eyes-blue {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.5);
+}
+#character-stage.skin-8 .eyes-layer.eyes-brown {
+  transform: translate(calc(291px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(72px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-8 .eyes-layer.eyes-green {
+  transform: translate(calc(297px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(83.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-8 .eyes-layer.eyes-black {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.81);
+}
+
+/* hair */
+#character-stage.skin-8 .hair-layer.hair1 {
+  transform: translate(calc(457px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(125px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.465);
+}
+#character-stage.skin-8 .hair-layer.hair2 {
+  transform: translate(calc(476px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(134px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.398);
+}
+#character-stage.skin-8 .hair-layer.hair3 {
+  transform: translate(calc(198px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-28px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.3);
+}
+#character-stage.skin-8 .hair-layer.hair4 {
+  transform: translate(calc(332px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(85px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.86);
+}
+#character-stage.skin-8 .hair-layer.hair5 {
+  transform: translate(calc(211px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-16px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.25);
+}
+#character-stage.skin-8 .hair-layer.hair6 {
+  transform: translate(calc(373px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(61px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.695);
+}
+
+/* mouth */
+#character-stage.skin-8 .mouth-layer.mouth-smile {
+  transform: translate(calc(291px + var(--skin-offset-x)), calc(273px + var(--skin-offset-y))) scale(.12);
+}
+#character-stage.skin-8 .mouth-layer.mouth-frown {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+#character-stage.skin-8 .mouth-layer.mouth-teeth {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+
+#character-stage.skin-9 {
+  --skin-offset-x: -353.5px;
+  --skin-offset-y: -303.6px;
+  --hair-offset-x: -27.5px;
+  --hair-offset-y: -15px;
+  --eyes-offset-x: -26px;
+  --eyes-offset-y: -11px;
+  --nose-offset-x: 35px;
+  --nose-offset-y: 22px;
+}
+
+#character-stage.skin-9 .skin-layer {
+  transform: translate(var(--skin-offset-x), var(--skin-offset-y)) scale(1.845);
+}
+
+/* tie color */
+#character-stage.skin-9 .tie-layer.tie-blue,
+#character-stage.skin-9 .tie-layer.tie-red {
+  transform: translate(-393px, -117px) scale(2.8);
+}
+#character-stage.skin-9 .tie-layer.tie-grey {
+  transform: translate(-595px, -230px) scale(3.7);
+}
+
+/* nose */
+#character-stage.skin-9 .nose-layer.nose-nose1 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-9 .nose-layer.nose-nose2 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-9 .nose-layer.nose-nose3 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+#character-stage.skin-9 .nose-layer.nose-nose4 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+
+
+/* eyes */
+#character-stage.skin-9 .eyes-layer.eyes-blue {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.5);
+}
+#character-stage.skin-9 .eyes-layer.eyes-brown {
+  transform: translate(calc(291px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(72px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-9 .eyes-layer.eyes-green {
+  transform: translate(calc(297px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(83.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.82);
+}
+#character-stage.skin-9 .eyes-layer.eyes-black {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.81);
+}
+
+
+/* hair */
+#character-stage.skin-9 .hair-layer.hair1 {
+  transform: translate(calc(457px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(125px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.47);
+}
+#character-stage.skin-9 .hair-layer.hair2 {
+  transform: translate(calc(476.5px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(134px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.4);
+}
+#character-stage.skin-9 .hair-layer.hair3 {
+  transform: translate(calc(193px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-28px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.32);
+}
+#character-stage.skin-9 .hair-layer.hair4 {
+  transform: translate(calc(333px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(85px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.86);
+}
+#character-stage.skin-9 .hair-layer.hair5 {
+  transform: translate(calc(212px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-16px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.25);
+}
+#character-stage.skin-9 .hair-layer.hair6 {
+  transform: translate(calc(373.8px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(61px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.696);
+}
+
+/* mouth */
+#character-stage.skin-9 .mouth-layer.mouth-smile {
+  transform: translate(calc(265px + var(--skin-offset-x)), calc(260.5px + var(--skin-offset-y))) scale(.12);
+}
+#character-stage.skin-9 .mouth-layer.mouth-frown {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+#character-stage.skin-9 .mouth-layer.mouth-teeth {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+
+
+
+
+#character-stage.skin-10 {
+  --skin-offset-x: -257px;
+  --skin-offset-y: -235px;
+  --hair-offset-x: -124px;
+  --hair-offset-y: -80px;
+  --eyes-offset-x: -123px;
+  --eyes-offset-y: -80px;
+  --nose-offset-x: -61px;
+  --nose-offset-y: -46px;
+}
+
+#character-stage.skin-10 .skin-layer {
+  transform: translate(var(--skin-offset-x), var(--skin-offset-y)) scale(1.55);
+}
+
+/* tie color */
+#character-stage.skin-10.tie-layer.tie-blue,
+#character-stage.skin-10.tie-layer.tie-red {
+  transform: translate(-393px, -117px) scale(2.8);
+}
+#character-stage.skin-10.tie-layer.tie-grey {
+  transform: translate(-595px, -230px) scale(3.7);
+}
+
+/* nose */
+#character-stage.skin-10 .nose-layer.nose-nose1 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-10 .nose-layer.nose-nose2 {
+  transform: translate(calc(516px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(200px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.085);
+}
+#character-stage.skin-10 .nose-layer.nose-nose3 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+#character-stage.skin-10 .nose-layer.nose-nose4 {
+  transform: translate(calc(523px + var(--skin-offset-x) + var(--nose-offset-x, 0px)), calc(202px + var(--skin-offset-y) + var(--nose-offset-y, 0px))) scale(.065);
+}
+
+
+/* eyes */
+#character-stage.skin-10 .eyes-layer.eyes-blue {
+  transform: translate(calc(298px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.48);
+}
+#character-stage.skin-10 .eyes-layer.eyes-brown {
+  transform: translate(calc(291px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(72px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.79);
+}
+#character-stage.skin-10 .eyes-layer.eyes-green {
+  transform: translate(calc(297px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(83.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.79);
+}
+#character-stage.skin-10 .eyes-layer.eyes-black {
+  transform: translate(calc(299px + var(--skin-offset-x) + var(--eyes-offset-x)), calc(75.4px + var(--skin-offset-y) + var(--eyes-offset-y))) scale(.78);
+}
+
+/* hair */
+#character-stage.skin-10 .hair-layer.hair1 {
+  transform: translate(calc(457px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(125px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.47);
+}
+#character-stage.skin-10 .hair-layer.hair2 {
+  transform: translate(calc(476.5px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(134px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.4);
+}
+#character-stage.skin-10 .hair-layer.hair3 {
+  transform: translate(calc(193px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-28px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.32);
+}
+#character-stage.skin-10 .hair-layer.hair4 {
+  transform: translate(calc(333px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(85px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(0.86);
+}
+#character-stage.skin-10 .hair-layer.hair5 {
+  transform: translate(calc(212px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(-16px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(1.25);
+}
+#character-stage.skin-10 .hair-layer.hair6 {
+  transform: translate(calc(373.8px + var(--skin-offset-x) + var(--hair-offset-x, 0px)), calc(61px + var(--skin-offset-y) + var(--hair-offset-y, 0px))) scale(.694);
+}
+
+/* mouth */
+#character-stage.skin-10 .mouth-layer.mouth-smile {
+  transform: translate(calc(168px + var(--skin-offset-x)), calc(193px + var(--skin-offset-y))) scale(.12);
+}
+#character-stage.skin-10.mouth-layer.mouth-frown {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+#character-stage.skin-10.mouth-layer.mouth-teeth {
+  transform: translate(calc(0px + var(--skin-offset-x)), calc(180px + var(--skin-offset-y))) scale(0.15);
+}
+
+
+
+
 
 
 
@@ -747,8 +1390,17 @@ button.selected {
   left: 36%;
 }
 
+.mouth-layer {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top center;
+}
 
-.button-column button {
+
+.control-group .button-column button {
   width: 80px;
   height: 80px;
   padding: 0;
@@ -762,13 +1414,23 @@ button.selected {
   overflow: hidden;
 }
 
-.button-column button img {
+.control-group .button-column button img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
-.button-column button:hover {
+.mouth-column button {
+  width: 64px;
+  height: 64px;
+}
+
+.mouth-column button img {
+  object-fit: contain;
+  padding: 8px;
+}
+
+.control-group .button-column button:hover {
   border-color: #5a9cff;
 }
 
@@ -779,15 +1441,18 @@ button.selected {
 
 .skin-swatch-row {
   display: flex;
+  flex-wrap: nowrap;
   gap: 12px;
 }
 
 .skin-swatch-row button {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
   padding: 0;
   border-radius: 50%;
-  border: 2px solid #ccc;
+  border: 5px solid #ffffff;
   background: white;
   display: flex;
   justify-content: center;
@@ -799,9 +1464,10 @@ button.selected {
   border-color: #5a9cff;
 }
 
+.control-group .button-column button.selected,
 .skin-swatch-row button.selected {
-  border-color: #5a9cff;
-  background: #d0e6ff;
+  border-color: #5a9cff !important;
+  background-color: #d0e6ff !important;
 }
 
 .swatch {
@@ -810,3 +1476,6 @@ button.selected {
   border-radius: 50%;
   display: block;
 }
+
+/* nose sizing/position overrides removed; nose sizing/position is controlled by the skin-specific .nose-layer.nose-nose* rules above */
+

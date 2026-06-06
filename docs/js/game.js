@@ -30,6 +30,7 @@ let playerData = {
         nose: "default",
         mouth: "default",
         clothing: "default",
+        tie: "none",
         accessories: "none",
         gender: "default"
     },
@@ -46,7 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const layer = document.getElementById(`layer-${feature}`);
 
         if (layer) {
-            layer.src = `media/${value}.png`;
+            layer.src = `../media/${value}.png`;
             playerData.character[feature] = value;
         }
     }
@@ -61,17 +62,31 @@ function selectFeature(type, value) {
     /* ------------------------------
        Highlight selected button
     ------------------------------ */
+    // Remove highlighting from all buttons in the same control group
     document.querySelectorAll(`#controls button[id^="${type}"]`)
         .forEach(btn => btn.classList.remove("selected"));
 
-    const activeBtn = document.getElementById(`${type}-${value}`);
-    if (activeBtn) activeBtn.classList.add("selected");
+    // Ensure we target the correct button id
+    const activeBtn = document.getElementById(type === 'hair' ? value : `${type}-${value}`);
+    if (activeBtn) {
+        activeBtn.classList.add("selected");
+    } else {
+        console.warn(`No button found for type=${type} value=${value}`);
+    }
+
 
     /* ------------------------------
        Prevent changes if locked
     ------------------------------ */
     if (hostConfig.lockedFeatures[type]) {
         console.warn(`Feature "${type}" is locked by host.`);
+        return;
+    }
+
+    /* ------------------------------
+       For tie, skip if already selected
+    ------------------------------ */
+    if (type === 'tie' && value === playerData.character.tie) {
         return;
     }
 
@@ -83,58 +98,66 @@ function selectFeature(type, value) {
     if (layer) {
 
         // IMPORTANT: must be let, not const
-        let imgPath = `media/${value}.png`;
+        let imgPath = `../media/${value}.png`;
 
-        // Eyes use a different filename pattern
-        if (type === 'eyes') {
-            imgPath = `media/eyes-${value}.png`;
+        // Eyes and tie use special filename patterns or behavior
+        if (type === 'skin') {
+            imgPath = `../media/skin-${value}.png`;
+            layer.src = imgPath;
+        } else if (type === 'eyes') {
+            imgPath = `../media/eyes-${value}.png`;
+            layer.src = imgPath;
+        } else if (type === 'tie') {
+            if (value === 'blue') {
+                layer.src = "";
+            } else {
+                imgPath = `../media/tie-${value}.png`;
+                layer.src = imgPath;
+            }
+        } else {
+            layer.src = imgPath;
         }
-
-        layer.onerror = () => {
-            layer.src = "";
-        };
-
-        layer.src = imgPath;
 
         /* ------------------------------
            SKIN CLASS HANDLING
         ------------------------------ */
-        if (type === 'skin') {
-            const stage = document.getElementById('character-stage');
+        /* ------------------------------
+   SKIN CLASS HANDLING
+------------------------------ */
+if (type === 'skin') {
+    const stage = document.getElementById('character-stage');
+    
+    // Dynamically remove any class that starts with "skin-"
+    stage.className = stage.className.split(' ')
+        .filter(c => !c.startsWith('skin-'))
+        .join(' ');
 
-            stage.classList.remove(
-                'skin-light', 'skin-medium', 'skin-tan', 'skin-brown', 'skin-dark'
-            );
-
-            stage.classList.add(`skin-${value}`);
-        }
+    stage.classList.add(`skin-${value}`);
+}
 
         /* ------------------------------
-           HAIR CLASS HANDLING
-        ------------------------------ */
-        if (type === 'hair') {
-            const hairLayer = document.getElementById('layer-hair');
+   HAIR CLASS HANDLING
+------------------------------ */
+if (type === 'hair') {
+    const hairLayer = document.getElementById('layer-hair');
+    
+    hairLayer.className = hairLayer.className.split(' ')
+        .filter(c => c === 'character-layer' || c === 'hair-layer' || !c.match(/hair\d+/))
+        .join(' ');
 
-            hairLayer.classList.remove(
-                'hair1', 'hair2', 'hair3', 'hair4', 'hair5'
-            );
+    hairLayer.classList.add(value);
+}
 
-            hairLayer.classList.add(value);
-        }
+/* ------------------------------
+   NOSE CLASS HANDLING
+------------------------------ */
+if (type === 'nose') {
+    const noseLayer = document.getElementById('layer-nose');
 
-
-        /* ------------------------------
-           NOSE CLASS HANDLING
-        ------------------------------ */
-        if (type === 'nose') {
-            const noseLayer = document.getElementById('layer-nose');
-
-            noseLayer.classList.remove(
-                'nose-nose1','nose-nose2','nose-nose3','nose-nose4','nose-nose5'
-            );
-
-            noseLayer.classList.add(`nose-${value}`);
-        }
+    // Preserve the base nose-layer class, remove only previous nose variant classes
+    noseLayer.classList.remove('nose-nose1', 'nose-nose2', 'nose-nose3', 'nose-nose4');
+    noseLayer.classList.add(`nose-${value}`);
+}
         /* ------------------------------
         EYE CLASS HANDLING
         ------------------------------ */
@@ -148,6 +171,28 @@ function selectFeature(type, value) {
             eyesLayer.classList.add(`eyes-${value}`);
         }
 
+        if (type === 'tie') {
+            const tieLayer = document.getElementById('layer-tie');
+
+            tieLayer.classList.remove('tie-blue', 'tie-red');
+            if (value !== 'blue') {
+                tieLayer.classList.add(`tie-${value}`);
+            }
+        }
+
+        /* ------------------------------
+        MOUTH CLASS HANDLING
+        ------------------------------ */
+        if (type === 'mouth') {
+            const mouthLayer = document.getElementById('layer-mouth');
+
+            mouthLayer.classList.remove(
+                'mouth-smile', 'mouth-frown', 'mouth-teeth'
+            );
+
+            mouthLayer.classList.add(`mouth-${value}`);
+            mouthLayer.src = `../media/mouth-${value}.png`;
+        }
 
     } else {
         console.error(`Layer for type "${type}" not found.`);
@@ -156,6 +201,11 @@ function selectFeature(type, value) {
     /* ------------------------------
        Update player data
     ------------------------------ */
-    playerData.character[type] = value;
-    console.log(`Updated ${type} to ${value}`);
+    if (type === 'tie' && value === 'blue') {
+        playerData.character[type] = 'none';
+        console.log(`Updated ${type} to none`);
+    } else {
+        playerData.character[type] = value;
+        console.log(`Updated ${type} to ${value}`);
+    }
 }

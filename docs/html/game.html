@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Game - Jaime Carbajal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+ <header>
+    <div class="header-left">
+      <h1>Jaime Carbajal</h1>
+      <p>PHD Stuent | Political Scientist</p> 
+    </div>
+    <div class="header-right">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <!-- <li><a href="projects.html">Projects</a></li> -->
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="game.html">Game</a></li>
+          <!-- <li><a href="blog.html">Blog</a></li> -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- <section class="welcome-banner" id="welcome">
+    <p>Welcome to my portfolio!</p>
+  </section> -->
+
+<section class="game-layout"> 
+  <div class="game-title"> 
+    <h2>Welcome to My Game Experiment</h2> 
+    <p>Create your own political figure!</p> 
+  </div> 
+  <!-- ============================ 
+   SETUP SCREEN (Step 1) 
+   ============================ --> 
+   <!-- <div id="setup-screen"> 
+    <h3>Before we begin…</h3> 
+    <label>Choose skin tone:</label> 
+    <select id="skin-select"> 
+      <option value="light">Light</option> 
+      <option value="medium">Medium</option> 
+      <option value="dark">Dark</option> 
+    </select> 
+    <label>Choose gender:</label> 
+    <select id="gender-select"> 
+      <option value="male">Male</option> 
+      <option value="female">Female</option> 
+    </select>
+    <button onclick="startCustomization()">Continue</button> 
+  </div>  -->
+  <!-- ============================ 
+   GAME UI (Hidden until setup) 
+   ============================ --> 
+  <div id="game-ui"> <!--</div> style="display:none;"> -->
+    <div class="game-container"> 
+      <div id="controls"> 
+        <div class="controls-column">
+          <div class="control-group">
+            <h3>Choose Skin Tone</h3>
+            <div class="skin-swatch-row">
+              <button id="skin-1" onclick="selectFeature('skin','1')">
+                <span class="swatch" style="background:#E6C6BF;"></span>
+              </button>
+              <button id="skin-2" onclick="selectFeature('skin','2')">
+                <span class="swatch" style="background:#D4AFA3;"></span>
+              </button>
+              <!-- new 3 -->
+              <button id="skin-3" onclick="selectFeature('skin','3')">
+                <span class="swatch" style="background:#C29C88;"></span>
+              </button>
+              <button id="skin-4" onclick="selectFeature('skin','4')">
+                <span class="swatch" style="background:#B18972;"></span>
+              </button>
+              <button id="skin-5" onclick="selectFeature('skin','5')">
+                <span class="swatch" style="background:#9B7966;"></span>
+              </button>
+              <!-- new6 -->
+              <button id="skin-6" onclick="selectFeature('skin','6')">
+                <span class="swatch" style="background:#886958;"></span>
+              </button>
+              <button id="skin-7" onclick="selectFeature('skin','7')">
+                <span class="swatch" style="background:#755848;"></span>
+              </button>
+              <button id="skin-8" onclick="selectFeature('skin','8')">
+                <span class="swatch" style="background:#614539;"></span>
+              </button>
+              <!-- new 9 -->
+              <button id="skin-9" onclick="selectFeature('skin','9')">
+                <span class="swatch" style="background:#48352C;"></span>
+              </button>
+              <button id="skin-10" onclick="selectFeature('skin','10')">
+                <span class="swatch" style="background:#36251D;"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <h3>Choose Hair</h3>
+          <div class="button-column">
+            <button id="hair1" onclick="selectFeature('hair','hair1')">
+              <img src="../media/hair1.png" alt="Hair 1">
+            </button>
+            <button id="hair2" onclick="selectFeature('hair','hair2')">
+              <img src="../media/hair2.png" alt="Hair 2">
+            </button>
+            <button id="hair3" onclick="selectFeature('hair','hair3')">
+              <img src="../media/hair3.png" alt="Hair 3">
+            </button>
+            <button id="hair4" onclick="selectFeature('hair','hair4')">
+              <img src="../media/hair4.png" alt="Hair 4">
+            </button>
+            <button id="hair5" onclick="selectFeature('hair','hair5')">
+              <img src="../media/hair5.png" alt="Hair 5">
+            </button>
+            <button id="hair6" onclick="selectFeature('hair','hair6')">
+              <img src="../media/hair6.png" alt="Hair 6">
+            </button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <h3>Choose Eye Color</h3>
+          <div class="button-column">
+            <button id="eyes-blue" onclick="selectFeature('eyes','blue')">
+              <img src="../media/eyes-blue.png" alt="Blue Eyes">
+            </button>
+            <button id="eyes-brown" onclick="selectFeature('eyes','brown')">
+              <img src="../media/eyes-brown.png" alt="Brown Eyes">
+            </button>
+            <button id="eyes-green" onclick="selectFeature('eyes','green')">
+              <img src="../media/eyes-green.png" alt="Green Eyes">
+            </button>
+            <button id="eyes-black" onclick="selectFeature('eyes','black')">
+              <img src="../media/eyes-black.png" alt="Black Eyes">
+            </button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <h3>Choose Nose</h3>
+          <div class="button-column">
+            <button id="nose-nose1" onclick="selectFeature('nose','nose1')">
+              <img src="../media/nose1.png" alt="Nose 1">
+            </button>
+            <button id="nose-nose2" onclick="selectFeature('nose','nose2')">
+              <img src="../media/nose2.png" alt="Nose 2">
+            </button>
+            <button id="nose-nose3" onclick="selectFeature('nose','nose3')">
+              <img src="../media/nose3.png" alt="Nose 3">
+            </button>
+            <button id="nose-nose4" onclick="selectFeature('nose','nose4')">
+              <img src="../media/nose4.png" alt="Nose 4">
+            </button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <h3>Choose Tie Color</h3>
+          <div class="button-column">
+            <button id="tie-blue" onclick="selectFeature('tie','blue')">
+              <img src="../media/tie-blue.png" alt="Blue Tie">
+            </button>
+            <button id="tie-red" onclick="selectFeature('tie','red')">
+              <img src="../media/tie-red.png" alt="Red Tie">
+            </button>
+            <button id="tie-grey" onclick="selectFeature('tie','grey')">
+              <img src="../media/tie-grey.png" alt="Grey Tie">
+            </button>
+         </div>
+        </div>
+
+        <div class="control-group">
+          <h3>Choose Mouth</h3>
+          <div class="button-column mouth-column">
+            <button id="mouth-smile" onclick="selectFeature('mouth','smile')">
+              <img src="../media/mouth-smile.png" alt="Smile">
+            </button>
+            <button id="mouth-frown" onclick="selectFeature('mouth','frown')">
+              <img src="../media/mouth-frown.png" alt="Frown">
+            </button>
+            <button id="mouth-teeth" onclick="selectFeature('mouth','teeth')">
+              <img src="../media/mouth-teeth.png" alt="Teeth">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="character-stage" class="skin-1"> 
+      <img id="layer-skin" class="character-layer skin-layer">
+        <img id="layer-tie" class="character-layer tie-layer">
+        <img id="layer-eyes" class="character-layer eyes-layer">
+        <img id="layer-hair" class="character-layer hair-layer">
+        <img id="layer-nose" class="character-layer nose-layer">
+        <img id="layer-mouth" class="character-layer mouth-layer">
+
+      </div> 
+    </div> 
+  </div> 
+</section>
+
+
+
+  <footer class="footer">
+    <div class="footer-content">
+        <!-- Left Section: Contact Information -->
+        <div class="footer-contact">
+            <p>Email: </p>
+            <p>Phone: </p>
+        </div>
+
+        <!-- Right Section: Social Media Links -->
+        <div class="footer-social">
+          <a href="exmple.com" target="_blank">LinkedIn</a>
+            <a href="example.com" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="footer-copyright">
+        <p>&copy; 2026 Jaime Carbajal. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- as the player scrolls down the image should follow them-->
+<script src="../js/game.js"></script>
+</body>
+</html>
